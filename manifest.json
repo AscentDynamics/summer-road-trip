@@ -1,0 +1,18 @@
+{
+  "name": "Road Trip 2026",
+  "short_name": "Road Trip",
+  "description": "Summer road trip dashboard — 6 friends, 2 cars, 22 national parks",
+  "start_url": "/summer-road-trip/",
+  "scope": "/summer-road-trip/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#f0883e",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
