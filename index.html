@@ -502,10 +502,14 @@ async function fetchOSRMRoute() {
   const ordered = [...STOPS].sort((a,b) => getStopDay(a) - getStopDay(b) || a.id - b.id);
   const coords = ordered.map(s => `${s.lng},${s.lat}`).join(';');
   try {
-    const res = await fetch(`https://router.project-osrm.org/route/v1/driving/${coords}?overview=full&geometries=geojson`);
+    const res = await fetch(`https://router.project-osrm.org/route/v1/driving/${coords}?overview=simplified&geometries=geojson`);
     if (!res.ok) return null;
     const data = await res.json();
-    if (data.routes?.[0]) return data.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);
+    if (data.routes?.[0]) {
+        const raw = data.routes[0].geometry.coordinates;
+        const step = Math.max(1, Math.floor(raw.length / 1500));
+        return raw.filter((_, i) => i % step === 0 || i === raw.length - 1).map(c => [c[1], c[0]]);
+      }
   } catch(e) {}
   return null;
 }
