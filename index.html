@@ -466,8 +466,8 @@ let expenses    = JSON.parse(localStorage.getItem('expenses')    || '[]');
 let visited     = JSON.parse(localStorage.getItem('visited')     || '[]');
 let stopOverrides = JSON.parse(localStorage.getItem('stopOverrides') || '{}');
 let gasSettings = JSON.parse(localStorage.getItem('gasSettings') || JSON.stringify({
-  car1name:'', car1mpg:'', car1miles:3943,
-  car2name:'', car2mpg:'', car2miles:3943,
+  car1name:'', car1mpg:'', car1miles:7886,
+  car2name:'', car2mpg:'', car2miles:7886,
   gasPrice:3.50
 }));
 
@@ -615,10 +615,10 @@ function loadGasInputs() {
   const g = gasSettings;
   document.getElementById('car1name').value  = g.car1name  || '';
   document.getElementById('car1mpg').value   = g.car1mpg   || '';
-  document.getElementById('car1miles').value = g.car1miles || 3943;
+  document.getElementById('car1miles').value = g.car1miles || 7886;
   document.getElementById('car2name').value  = g.car2name  || '';
   document.getElementById('car2mpg').value   = g.car2mpg   || '';
-  document.getElementById('car2miles').value = g.car2miles || 3943;
+  document.getElementById('car2miles').value = g.car2miles || 7886;
   document.getElementById('gasPrice').value  = g.gasPrice  || 3.50;
 }
 
