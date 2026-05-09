@@ -37,51 +37,24 @@
       top: 0;
       z-index: 10;
     }
-    .header-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
+    .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
     .trip-title { font-size: 17px; font-weight: 700; color: var(--accent); }
-    .day-badge {
-      background: var(--accent);
-      color: #000;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 4px 11px;
-      border-radius: 20px;
-    }
+    .day-badge { background: var(--accent); color: #000; font-size: 12px; font-weight: 800; padding: 4px 11px; border-radius: 20px; }
     .progress-bar { background: var(--surface2); border-radius: 4px; height: 5px; overflow: hidden; }
     .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--green)); border-radius: 4px; transition: width .4s; }
     .progress-meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 5px; }
 
     /* ── Tabs ── */
     .tab-bar {
-      position: fixed;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      max-width: 500px;
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      display: flex;
-      z-index: 100;
+      position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; max-width: 500px;
+      background: var(--surface); border-top: 1px solid var(--border);
+      display: flex; z-index: 100;
     }
     .tab-btn {
-      flex: 1;
-      padding: 10px 0 8px;
-      border: none;
-      background: none;
-      color: var(--muted);
-      font-size: 10px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-      transition: color .15s;
+      flex: 1; padding: 10px 0 8px; border: none; background: none;
+      color: var(--muted); font-size: 10px; cursor: pointer;
+      display: flex; flex-direction: column; align-items: center; gap: 3px; transition: color .15s;
     }
     .tab-btn.active { color: var(--accent); }
     .tab-icon { font-size: 20px; }
@@ -89,76 +62,33 @@
     .tab-pane.active { display: block; }
 
     /* ── Cards ── */
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin: 12px;
-    }
-    .card-title {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .8px;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin: 12px; }
+    .card-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: var(--muted); margin-bottom: 12px; }
 
-    /* ── Stop items ── */
-    .stop-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 0;
-      border-bottom: 1px solid var(--border);
-    }
+    /* ── Stop items (Today tab) ── */
+    .stop-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
     .stop-item:last-child { border-bottom: none; padding-bottom: 0; }
     .stop-item:first-child { padding-top: 0; }
-    .dot {
-      width: 9px; height: 9px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
+    .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
     .dot.park       { background: var(--green); }
     .dot.city       { background: var(--blue); }
     .dot.attraction { background: var(--purple); }
     .dot.home       { background: var(--accent); }
     .stop-info { flex: 1; min-width: 0; }
     .stop-name { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .stop-sub  { font-size: 11px; color: var(--muted); margin-top: 1px; }
+    .stop-sub  { font-size: 11px; color: var(--muted); margin-top: 2px; }
     .nav-link {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 6px 10px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      white-space: nowrap;
-      flex-shrink: 0;
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+      padding: 7px 11px; border-radius: 8px; font-size: 12px; font-weight: 600;
+      text-decoration: none; white-space: nowrap; flex-shrink: 0;
     }
 
     /* ── Action buttons ── */
-    .action-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
+    .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .action-btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 5px;
-      padding: 14px 8px;
-      border-radius: 12px;
-      border: none;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: opacity .15s;
+      display: flex; flex-direction: column; align-items: center; gap: 5px;
+      padding: 14px 8px; border-radius: 12px; border: none; cursor: pointer;
+      font-size: 12px; font-weight: 700; text-decoration: none; transition: opacity .15s;
     }
     .action-btn:active { opacity: .75; }
     .action-btn .ai { font-size: 22px; }
@@ -166,13 +96,10 @@
     .action-btn.food    { background: #3fb950; color: #000; }
     .action-btn.walmart { background: #0071ce; color: #fff; }
     .action-btn.camp    { background: #58a6ff; color: #000; }
+    .loc-hint { font-size: 11px; color: var(--muted); text-align: center; margin-top: 6px; }
 
-    /* ── Pre-trip state ── */
-    .pre-trip {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--muted);
-    }
+    /* ── Pre-trip ── */
+    .pre-trip { text-align: center; padding: 40px 20px; color: var(--muted); }
     .pre-trip .big { font-size: 48px; margin-bottom: 12px; }
     .pre-trip h2 { font-size: 20px; color: var(--text); margin-bottom: 8px; }
     .pre-trip p { font-size: 14px; line-height: 1.5; }
@@ -187,38 +114,15 @@
     .expense-form { display: flex; flex-direction: column; gap: 8px; }
     .form-row { display: flex; gap: 8px; }
     input, select {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--text);
-      padding: 10px 12px;
-      font-size: 14px;
-      width: 100%;
-      outline: none;
-      appearance: none;
+      background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text); padding: 10px 12px; font-size: 14px; width: 100%; outline: none; appearance: none;
     }
     input:focus, select:focus { border-color: var(--accent); }
     input::placeholder { color: var(--muted); }
     select option { background: var(--surface2); }
-    .btn-add {
-      background: var(--accent);
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      padding: 11px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      width: 100%;
-    }
+    .btn-add { background: var(--accent); color: #000; border: none; border-radius: 8px; padding: 11px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; }
     .expense-list { display: flex; flex-direction: column; }
-    .expense-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .expense-item { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--border); }
     .expense-item:last-child { border-bottom: none; }
     .exp-icon { font-size: 18px; flex-shrink: 0; }
     .exp-info { flex: 1; min-width: 0; }
@@ -227,137 +131,92 @@
     .exp-amounts { text-align: right; flex-shrink: 0; }
     .exp-total { font-weight: 700; font-size: 15px; color: var(--accent); }
     .exp-each  { font-size: 11px; color: var(--muted); }
-    .exp-del {
-      background: none;
-      border: none;
-      color: var(--muted);
-      cursor: pointer;
-      font-size: 16px;
-      padding: 2px 4px;
-      flex-shrink: 0;
-    }
+    .exp-del { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 16px; padding: 2px 4px; flex-shrink: 0; }
     .empty-state { text-align: center; padding: 24px 16px; color: var(--muted); font-size: 14px; }
 
+    /* ── Gas summary (Budget tab) ── */
+    .gas-summary-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px;
+    }
+    .gas-summary-row:last-child { border-bottom: none; }
+    .gas-summary-row.total { font-weight: 700; font-size: 16px; padding-top: 12px; }
+    .gas-summary-row .val { color: var(--accent); font-weight: 700; }
+    .gas-summary-row.total .val { font-size: 20px; }
+    .gas-hint { font-size: 11px; color: var(--muted); text-align: center; margin-top: 10px; }
+
     /* ── Itinerary ── */
-    .day-group { margin: 12px; }
+    .itin-toolbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 12px 0;
+    }
+    .itin-section-title { font-size: 13px; font-weight: 700; color: var(--muted); }
+    .jump-btn {
+      background: var(--accent); color: #000; border: none; border-radius: 20px;
+      padding: 6px 14px; font-size: 12px; font-weight: 700; cursor: pointer;
+    }
+    .day-group { margin: 10px 12px; }
     .day-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
     .day-pill {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 3px 10px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--accent);
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 20px; padding: 4px 12px; font-size: 12px; font-weight: 700; color: var(--accent);
     }
     .day-pill.today { background: var(--accent); color: #000; border-color: var(--accent); }
     .day-date-label { font-size: 12px; color: var(--muted); }
     .itin-stop {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 12px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      margin-bottom: 6px;
-      transition: opacity .2s;
+      display: flex; align-items: center; gap: 10px;
+      padding: 11px 12px; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; margin-bottom: 7px; transition: opacity .2s;
     }
-    .itin-stop.visited { opacity: .4; }
-    .itin-stop .stop-name { flex: 1; font-size: 14px; font-weight: 600; }
+    .itin-stop.visited { opacity: .35; }
+    .itin-stop.today-stop { border-color: var(--accent); }
+    .itin-stop-info { flex: 1; min-width: 0; }
+    .itin-stop-name { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .itin-stop-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .type-tag {
+      font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: .4px; flex-shrink: 0;
+    }
+    .type-tag.park       { background: #1a3a22; color: var(--green); }
+    .type-tag.city       { background: #1a2a3a; color: var(--blue); }
+    .type-tag.attraction { background: #2a1a3a; color: var(--purple); }
+    .type-tag.home       { background: #3a2a1a; color: var(--accent); }
+    .itin-nav {
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+      padding: 7px 10px; border-radius: 8px; font-size: 12px; font-weight: 600;
+      text-decoration: none; white-space: nowrap; flex-shrink: 0;
+    }
     .check-btn {
-      width: 22px; height: 22px;
-      border: 2px solid var(--border);
-      border-radius: 50%;
-      background: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      flex-shrink: 0;
-      transition: all .2s;
-      color: transparent;
+      width: 26px; height: 26px; border: 2px solid var(--border); border-radius: 50%;
+      background: none; cursor: pointer; display: flex; align-items: center;
+      justify-content: center; font-size: 13px; flex-shrink: 0; transition: all .2s; color: transparent;
     }
     .check-btn.done { background: var(--green); border-color: var(--green); color: #000; }
 
     /* ── Stats ── */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin: 12px;
-    }
-    .stat-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px;
-      text-align: center;
-    }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px; }
+    .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px; text-align: center; }
     .stat-val { font-size: 28px; font-weight: 800; color: var(--accent); }
     .stat-lbl { font-size: 11px; color: var(--muted); margin-top: 3px; }
 
     /* ── Settings ── */
-    .settings-card { margin: 12px; }
-    .setting-row { margin-bottom: 16px; }
-    .setting-label { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+    .setting-row { margin-bottom: 18px; }
+    .setting-label { font-size: 13px; color: var(--muted); margin-bottom: 7px; font-weight: 600; }
+    .gas-cars-settings { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px; }
+    .gas-car-settings {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 10px; display: flex; flex-direction: column; gap: 6px;
+    }
+    .gas-car-settings .car-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; margin-bottom: 2px; }
+    .gas-car-settings input { padding: 8px 10px; font-size: 13px; }
+    .gas-price-setting { display: flex; align-items: center; gap: 8px; }
+    .gas-price-setting label { font-size: 13px; color: var(--muted); white-space: nowrap; }
+    .gas-price-setting input { max-width: 120px; }
+    .setting-divider { border: none; border-top: 1px solid var(--border); margin: 4px 0 18px; }
     .btn-danger {
-      background: none;
-      border: 1px solid #f85149;
-      color: #f85149;
-      border-radius: 8px;
-      padding: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      width: 100%;
+      background: none; border: 1px solid #f85149; color: #f85149;
+      border-radius: 8px; padding: 10px; font-size: 14px; font-weight: 600; cursor: pointer; width: 100%;
     }
-    .loc-hint { font-size: 11px; color: var(--muted); text-align: center; margin-top: 6px; }
-
-    /* ── Gas Estimator ── */
-    .gas-cars { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
-    .gas-car {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .gas-car input {
-      padding: 7px 9px;
-      font-size: 13px;
-    }
-    .gas-car-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; }
-    .gas-car-est { font-size: 18px; font-weight: 800; color: var(--accent); margin-top: 2px; }
-    .gas-car-sub { font-size: 11px; color: var(--muted); }
-    .gas-price-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-    .gas-price-row label { font-size: 13px; color: var(--muted); white-space: nowrap; }
-    .gas-price-row input { max-width: 100px; }
-    .gas-totals {
-      border-top: 1px solid var(--border);
-      padding-top: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .gas-total-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 14px;
-    }
-    .gas-total-row.big { font-size: 16px; font-weight: 700; }
-    .gas-total-row .val { font-weight: 700; color: var(--accent); }
-    .gas-total-row.big .val { font-size: 20px; }
-    .gas-note { font-size: 11px; color: var(--muted); margin-top: 6px; text-align: center; }
   </style>
 </head>
 <body>
@@ -375,7 +234,7 @@
   </div>
 </div>
 
-<!-- Today tab -->
+<!-- ── Today ── -->
 <div class="tab-pane active" id="pane-today">
   <div id="preTripMsg" class="pre-trip" style="display:none">
     <div class="big">🚗</div>
@@ -387,65 +246,30 @@
   <div id="todayContent">
     <div class="card">
       <div class="card-title">Today's Stops</div>
-      <div id="todayStops"><div class="empty-state">No stops loaded yet.</div></div>
+      <div id="todayStops"><div class="empty-state">Set your start date in Settings.</div></div>
     </div>
     <div class="card">
       <div class="card-title">Find Nearby</div>
       <div class="action-grid">
-        <a class="action-btn gas" id="btnGas" href="#" onclick="openNearby('gas+station');return false;">
-          <span class="ai">⛽</span>Gas Near Me
-        </a>
-        <a class="action-btn food" id="btnFood" href="#" onclick="openNearby('grocery+store');return false;">
-          <span class="ai">🛒</span>Grocery Store
-        </a>
-        <a class="action-btn walmart" id="btnWalmart" href="#" onclick="openNearby('walmart+supercenter');return false;">
-          <span class="ai">🏪</span>Walmart
-        </a>
-        <a class="action-btn camp" id="btnCamp" href="#" onclick="openNearby('campground');return false;">
-          <span class="ai">⛺</span>Campground
-        </a>
+        <a class="action-btn gas"     href="#" onclick="openNearby('gas+station');return false;"><span class="ai">⛽</span>Gas Near Me</a>
+        <a class="action-btn food"    href="#" onclick="openNearby('grocery+store');return false;"><span class="ai">🛒</span>Grocery Store</a>
+        <a class="action-btn walmart" href="#" onclick="openNearby('walmart+supercenter');return false;"><span class="ai">🏪</span>Walmart</a>
+        <a class="action-btn camp"    href="#" onclick="openNearby('campground');return false;"><span class="ai">⛺</span>Campground</a>
       </div>
       <div class="loc-hint" id="locHint">Tap a button — will use your GPS location</div>
     </div>
   </div>
 </div>
 
-<!-- Budget tab -->
+<!-- ── Budget ── -->
 <div class="tab-pane" id="pane-budget">
-
-  <!-- Gas Estimator -->
   <div class="card">
-    <div class="card-title">⛽ Gas Estimator</div>
-    <div class="gas-cars">
-      <div class="gas-car">
-        <div class="gas-car-label">Car 1</div>
-        <input type="text"   id="car1name"  placeholder="Name (e.g. Sean's)"  oninput="saveGas()" />
-        <input type="number" id="car1mpg"   placeholder="MPG (e.g. 28)"  min="1" oninput="saveGas()" />
-        <input type="number" id="car1miles" placeholder="Est. miles"     min="0" oninput="saveGas()" />
-        <div class="gas-car-est" id="car1est">—</div>
-        <div class="gas-car-sub" id="car1gal">enter MPG &amp; miles</div>
-      </div>
-      <div class="gas-car">
-        <div class="gas-car-label">Car 2</div>
-        <input type="text"   id="car2name"  placeholder="Name (e.g. Xavi's)"  oninput="saveGas()" />
-        <input type="number" id="car2mpg"   placeholder="MPG (e.g. 25)"  min="1" oninput="saveGas()" />
-        <input type="number" id="car2miles" placeholder="Est. miles"     min="0" oninput="saveGas()" />
-        <div class="gas-car-est" id="car2est">—</div>
-        <div class="gas-car-sub" id="car2gal">enter MPG &amp; miles</div>
-      </div>
+    <div class="card-title">⛽ Estimated Gas Cost</div>
+    <div id="gasSummaryBody">
+      <div class="empty-state" style="padding:12px 0">Set car details in ⚙️ Settings</div>
     </div>
-    <div class="gas-price-row">
-      <label>$ / gallon</label>
-      <input type="number" id="gasPrice" placeholder="e.g. 3.50" step="0.01" min="0" oninput="saveGas()" />
-    </div>
-    <div class="gas-totals">
-      <div class="gas-total-row"><span>Total est. gas</span><span class="val" id="gasTotalEst">—</span></div>
-      <div class="gas-total-row big"><span>Per person</span><span class="val" id="gasPerPersonEst">—</span></div>
-    </div>
-    <div class="gas-note">Trip total: 7,886 mi · defaults split evenly between cars</div>
+    <div class="gas-hint">Edit MPG &amp; miles in ⚙️ Settings</div>
   </div>
-
-  <!-- Actual Spend -->
   <div class="card">
     <div class="budget-hero">
       <div class="budget-total-amount" id="budgetTotal">$0.00</div>
@@ -470,12 +294,12 @@
   <div class="card">
     <div class="card-title">All Expenses</div>
     <div class="expense-list" id="expenseList">
-      <div class="empty-state">No expenses yet. Add your first one above.</div>
+      <div class="empty-state">No expenses yet.</div>
     </div>
   </div>
 </div>
 
-<!-- Itinerary tab -->
+<!-- ── Itinerary ── -->
 <div class="tab-pane" id="pane-itinerary">
   <div class="stats-grid">
     <div class="stat-card"><div class="stat-val" id="statParks">0</div><div class="stat-lbl">Parks Visited</div></div>
@@ -483,100 +307,125 @@
     <div class="stat-card"><div class="stat-val" id="statStops">0</div><div class="stat-lbl">Stops Done</div></div>
     <div class="stat-card"><div class="stat-val" id="statDays">25</div><div class="stat-lbl">Total Days</div></div>
   </div>
+  <div class="itin-toolbar">
+    <span class="itin-section-title">All Stops</span>
+    <button class="jump-btn" onclick="jumpToToday()">Jump to Today</button>
+  </div>
   <div id="itineraryList"></div>
 </div>
 
-<!-- Settings tab -->
+<!-- ── Settings ── -->
 <div class="tab-pane" id="pane-settings">
-  <div class="card settings-card">
+  <div class="card">
     <div class="card-title">Trip Settings</div>
+
     <div class="setting-row">
       <div class="setting-label">Trip Start Date</div>
       <input type="date" id="startDateInput" onchange="saveStartDate()" />
     </div>
+
     <div class="setting-row">
-      <div class="setting-label">Number of People Splitting</div>
+      <div class="setting-label">People Splitting Costs</div>
       <input type="number" id="numPeopleInput" value="6" min="1" max="20" onchange="savePeople()" />
     </div>
+
+    <hr class="setting-divider" />
+
     <div class="setting-row">
+      <div class="setting-label">Cars &amp; Gas</div>
+      <div class="gas-cars-settings">
+        <div class="gas-car-settings">
+          <div class="car-label">Car 1</div>
+          <input type="text"   id="car1name"  placeholder="Name"      oninput="saveGas()" />
+          <input type="number" id="car1mpg"   placeholder="MPG"       oninput="saveGas()" />
+          <input type="number" id="car1miles" placeholder="Est. miles" oninput="saveGas()" />
+        </div>
+        <div class="gas-car-settings">
+          <div class="car-label">Car 2</div>
+          <input type="text"   id="car2name"  placeholder="Name"      oninput="saveGas()" />
+          <input type="number" id="car2mpg"   placeholder="MPG"       oninput="saveGas()" />
+          <input type="number" id="car2miles" placeholder="Est. miles" oninput="saveGas()" />
+        </div>
+      </div>
+      <div class="gas-price-setting">
+        <label>$ / gallon</label>
+        <input type="number" id="gasPrice" placeholder="e.g. 3.50" step="0.01" min="0" oninput="saveGas()" />
+      </div>
+    </div>
+
+    <hr class="setting-divider" />
+
+    <div class="setting-row" style="margin-bottom:0">
       <div class="setting-label">Danger Zone</div>
-      <button class="btn-danger" onclick="clearAll()">Clear All Expenses & Progress</button>
+      <button class="btn-danger" onclick="clearAll()">Clear All Expenses &amp; Progress</button>
     </div>
   </div>
 </div>
 
 <!-- Tab bar -->
 <div class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('today', this)">
-    <span class="tab-icon">🗓️</span>Today
-  </button>
-  <button class="tab-btn" onclick="switchTab('budget', this)">
-    <span class="tab-icon">💰</span>Budget
-  </button>
-  <button class="tab-btn" onclick="switchTab('itinerary', this)">
-    <span class="tab-icon">📍</span>Itinerary
-  </button>
-  <button class="tab-btn" onclick="switchTab('settings', this)">
-    <span class="tab-icon">⚙️</span>Settings
-  </button>
+  <button class="tab-btn active" onclick="switchTab('today', this)"><span class="tab-icon">🗓️</span>Today</button>
+  <button class="tab-btn" onclick="switchTab('budget', this)"><span class="tab-icon">💰</span>Budget</button>
+  <button class="tab-btn" onclick="switchTab('itinerary', this)"><span class="tab-icon">📍</span>Itinerary</button>
+  <button class="tab-btn" onclick="switchTab('settings', this)"><span class="tab-icon">⚙️</span>Settings</button>
 </div>
 
 <script>
-// ── Trip data ──────────────────────────────────────────────────────────
 const STOPS = [
-  { id:1,  name:"Bolton, MA",                    address:"Bolton, MA",                                          type:"home",       day:1,  state:"MA", park:false },
-  { id:2,  name:"Cedar Point",                   address:"1 Cedar Point Dr, Sandusky, OH 44870",                type:"attraction", day:1,  state:"OH", park:false },
-  { id:3,  name:"Oshkosh, WI",                   address:"Oshkosh, WI",                                         type:"city",       day:2,  state:"WI", park:false },
-  { id:4,  name:"Badlands National Park",        address:"25216 SD-240, Interior, SD 57750",                    type:"park",       day:3,  state:"SD", park:true  },
-  { id:5,  name:"Mount Rushmore",                address:"13000 Highway 244, Keystone, SD 57751",               type:"park",       day:4,  state:"SD", park:true  },
-  { id:6,  name:"Devils Tower",                  address:"Devils Tower National Monument, WY 82714",            type:"park",       day:4,  state:"WY", park:true  },
-  { id:7,  name:"Yellowstone National Park",     address:"Mammoth Hot Springs, Yellowstone, WY 82190",          type:"park",       day:5,  state:"WY", park:true  },
-  { id:8,  name:"Glacier National Park",         address:"West Glacier, MT 59936",                              type:"park",       day:7,  state:"MT", park:true  },
-  { id:9,  name:"Grand Teton National Park",     address:"Moose, WY 83012",                                     type:"park",       day:9,  state:"WY", park:true  },
-  { id:10, name:"Craters of the Moon",           address:"1266 Craters Loop Road, Arco, ID 83213",              type:"park",       day:10, state:"ID", park:true  },
-  { id:11, name:"Crater Lake National Park",     address:"Crater Lake, OR 97604",                               type:"park",       day:10, state:"OR", park:true  },
-  { id:12, name:"Redwood National Park",         address:"1111 2nd St, Crescent City, CA 95531",                type:"park",       day:11, state:"CA", park:true  },
-  { id:13, name:"Golden Gate Bridge",            address:"Golden Gate Bridge, San Francisco, CA",               type:"attraction", day:12, state:"CA", park:false },
-  { id:14, name:"Yosemite National Park",        address:"9035 Village Dr, Yosemite Valley, CA 95389",          type:"park",       day:12, state:"CA", park:true  },
-  { id:15, name:"Death Valley National Park",    address:"Furnace Creek, Death Valley, CA 92328",               type:"park",       day:13, state:"CA", park:true  },
-  { id:16, name:"Las Vegas, NV",                 address:"Las Vegas, NV",                                       type:"city",       day:14, state:"NV", park:false },
-  { id:17, name:"Zion National Park",            address:"1 Zion Park Blvd, Springdale, UT 84767",              type:"park",       day:14, state:"UT", park:true  },
-  { id:18, name:"Bryce Canyon National Park",    address:"Highway 63, Bryce Canyon City, UT 84764",             type:"park",       day:15, state:"UT", park:true  },
-  { id:19, name:"Horseshoe Bend",                address:"Highway 89, Page, AZ 86040",                          type:"attraction", day:15, state:"AZ", park:false },
-  { id:20, name:"Mesa Verde National Park",      address:"Mesa Verde, CO 81330",                                type:"park",       day:16, state:"CO", park:true  },
-  { id:21, name:"Four Corners Monument",         address:"597 NM-597, Teec Nos Pos, AZ 86514",                  type:"attraction", day:16, state:"AZ", park:false },
-  { id:22, name:"Monument Valley",              address:"U.S. 163, Oljato-Monument Valley, AZ 86536",          type:"attraction", day:16, state:"AZ", park:false },
-  { id:23, name:"Natural Bridges Nat'l Monument",address:"Natural Bridges Rd, Lake Powell, UT 84533",           type:"park",       day:17, state:"UT", park:true  },
-  { id:24, name:"Canyonlands National Park",     address:"2282 Resource Blvd, Moab, UT 84532",                  type:"park",       day:17, state:"UT", park:true  },
-  { id:25, name:"Arches National Park",          address:"Arches National Park, Moab, UT 84532",                type:"park",       day:17, state:"UT", park:true  },
-  { id:26, name:"Black Canyon of the Gunnison",  address:"9800 Hwy 347, Montrose, CO 81401",                    type:"park",       day:18, state:"CO", park:true  },
-  { id:27, name:"Rocky Mountain National Park",  address:"1000 US-36, Estes Park, CO 80517",                    type:"park",       day:18, state:"CO", park:true  },
-  { id:28, name:"Garden of the Gods",            address:"1805 N 30th St, Colorado Springs, CO 80904",          type:"attraction", day:19, state:"CO", park:false },
-  { id:29, name:"Great Sand Dunes National Park",address:"11999 CO-150, Mosca, CO 81146",                       type:"park",       day:19, state:"CO", park:true  },
-  { id:30, name:"Albuquerque, NM",               address:"Route 66, Albuquerque, NM 87106",                     type:"city",       day:20, state:"NM", park:false },
-  { id:31, name:"Amarillo, TX",                  address:"Amarillo, TX",                                        type:"city",       day:20, state:"TX", park:false },
-  { id:32, name:"Memphis, TN",                   address:"Memphis, TN",                                         type:"city",       day:21, state:"TN", park:false },
-  { id:33, name:"Nashville, TN",                 address:"Nashville, TN",                                       type:"city",       day:21, state:"TN", park:false },
-  { id:34, name:"Tail of the Dragon",            address:"17555 Tapoco Rd, Robbinsville, NC 28771",             type:"attraction", day:22, state:"NC", park:false },
-  { id:35, name:"Cherokee, NC",                  address:"Cherokee, NC 28719",                                  type:"city",       day:22, state:"NC", park:false },
-  { id:36, name:"New River Gorge National Park", address:"104 Main St, Glen Jean, WV 25846",                    type:"park",       day:23, state:"WV", park:true  },
-  { id:37, name:"Luray Caverns",                 address:"101 Cave Hill Rd, Luray, VA 22835",                   type:"attraction", day:24, state:"VA", park:false },
-  { id:38, name:"Shenandoah National Park",      address:"3655 US-211, Luray, VA 22835",                        type:"park",       day:24, state:"VA", park:true  },
-  { id:39, name:"Bolton, MA",                    address:"Bolton, MA",                                          type:"home",       day:25, state:"MA", park:false },
+  { id:1,  name:"Bolton, MA",                     address:"Bolton, MA",                                        type:"home",       day:1,  state:"MA", park:false },
+  { id:2,  name:"Cedar Point",                    address:"1 Cedar Point Dr, Sandusky, OH 44870",              type:"attraction", day:1,  state:"OH", park:false },
+  { id:3,  name:"Oshkosh, WI",                    address:"Oshkosh, WI",                                       type:"city",       day:2,  state:"WI", park:false },
+  { id:4,  name:"Badlands National Park",         address:"25216 SD-240, Interior, SD 57750",                  type:"park",       day:3,  state:"SD", park:true  },
+  { id:5,  name:"Mount Rushmore",                 address:"13000 Highway 244, Keystone, SD 57751",             type:"park",       day:4,  state:"SD", park:true  },
+  { id:6,  name:"Devils Tower",                   address:"Devils Tower National Monument, WY 82714",          type:"park",       day:4,  state:"WY", park:true  },
+  { id:7,  name:"Yellowstone National Park",      address:"Mammoth Hot Springs, Yellowstone, WY 82190",        type:"park",       day:5,  state:"WY", park:true  },
+  { id:8,  name:"Glacier National Park",          address:"West Glacier, MT 59936",                            type:"park",       day:7,  state:"MT", park:true  },
+  { id:9,  name:"Grand Teton National Park",      address:"Moose, WY 83012",                                   type:"park",       day:9,  state:"WY", park:true  },
+  { id:10, name:"Craters of the Moon",            address:"1266 Craters Loop Road, Arco, ID 83213",            type:"park",       day:10, state:"ID", park:true  },
+  { id:11, name:"Crater Lake National Park",      address:"Crater Lake, OR 97604",                             type:"park",       day:10, state:"OR", park:true  },
+  { id:12, name:"Redwood National Park",          address:"1111 2nd St, Crescent City, CA 95531",              type:"park",       day:11, state:"CA", park:true  },
+  { id:13, name:"Golden Gate Bridge",             address:"Golden Gate Bridge, San Francisco, CA",             type:"attraction", day:12, state:"CA", park:false },
+  { id:14, name:"Yosemite National Park",         address:"9035 Village Dr, Yosemite Valley, CA 95389",        type:"park",       day:12, state:"CA", park:true  },
+  { id:15, name:"Death Valley National Park",     address:"Furnace Creek, Death Valley, CA 92328",             type:"park",       day:13, state:"CA", park:true  },
+  { id:16, name:"Las Vegas, NV",                  address:"Las Vegas, NV",                                     type:"city",       day:14, state:"NV", park:false },
+  { id:17, name:"Zion National Park",             address:"1 Zion Park Blvd, Springdale, UT 84767",            type:"park",       day:14, state:"UT", park:true  },
+  { id:18, name:"Bryce Canyon National Park",     address:"Highway 63, Bryce Canyon City, UT 84764",           type:"park",       day:15, state:"UT", park:true  },
+  { id:19, name:"Horseshoe Bend",                 address:"Highway 89, Page, AZ 86040",                        type:"attraction", day:15, state:"AZ", park:false },
+  { id:20, name:"Mesa Verde National Park",       address:"Mesa Verde, CO 81330",                              type:"park",       day:16, state:"CO", park:true  },
+  { id:21, name:"Four Corners Monument",          address:"597 NM-597, Teec Nos Pos, AZ 86514",                type:"attraction", day:16, state:"AZ", park:false },
+  { id:22, name:"Monument Valley",                address:"U.S. 163, Oljato-Monument Valley, AZ 86536",        type:"attraction", day:16, state:"AZ", park:false },
+  { id:23, name:"Natural Bridges Nat'l Monument", address:"Natural Bridges Rd, Lake Powell, UT 84533",         type:"park",       day:17, state:"UT", park:true  },
+  { id:24, name:"Canyonlands National Park",      address:"2282 Resource Blvd, Moab, UT 84532",                type:"park",       day:17, state:"UT", park:true  },
+  { id:25, name:"Arches National Park",           address:"Arches National Park, Moab, UT 84532",              type:"park",       day:17, state:"UT", park:true  },
+  { id:26, name:"Black Canyon of the Gunnison",   address:"9800 Hwy 347, Montrose, CO 81401",                  type:"park",       day:18, state:"CO", park:true  },
+  { id:27, name:"Rocky Mountain National Park",   address:"1000 US-36, Estes Park, CO 80517",                  type:"park",       day:18, state:"CO", park:true  },
+  { id:28, name:"Garden of the Gods",             address:"1805 N 30th St, Colorado Springs, CO 80904",        type:"attraction", day:19, state:"CO", park:false },
+  { id:29, name:"Great Sand Dunes National Park", address:"11999 CO-150, Mosca, CO 81146",                     type:"park",       day:19, state:"CO", park:true  },
+  { id:30, name:"Albuquerque, NM",                address:"Route 66, Albuquerque, NM 87106",                   type:"city",       day:20, state:"NM", park:false },
+  { id:31, name:"Amarillo, TX",                   address:"Amarillo, TX",                                      type:"city",       day:20, state:"TX", park:false },
+  { id:32, name:"Memphis, TN",                    address:"Memphis, TN",                                       type:"city",       day:21, state:"TN", park:false },
+  { id:33, name:"Nashville, TN",                  address:"Nashville, TN",                                     type:"city",       day:21, state:"TN", park:false },
+  { id:34, name:"Tail of the Dragon",             address:"17555 Tapoco Rd, Robbinsville, NC 28771",           type:"attraction", day:22, state:"NC", park:false },
+  { id:35, name:"Cherokee, NC",                   address:"Cherokee, NC 28719",                                type:"city",       day:22, state:"NC", park:false },
+  { id:36, name:"New River Gorge National Park",  address:"104 Main St, Glen Jean, WV 25846",                  type:"park",       day:23, state:"WV", park:true  },
+  { id:37, name:"Luray Caverns",                  address:"101 Cave Hill Rd, Luray, VA 22835",                 type:"attraction", day:24, state:"VA", park:false },
+  { id:38, name:"Shenandoah National Park",       address:"3655 US-211, Luray, VA 22835",                      type:"park",       day:24, state:"VA", park:true  },
+  { id:39, name:"Bolton, MA",                     address:"Bolton, MA",                                        type:"home",       day:25, state:"MA", park:false },
 ];
 
 const TOTAL_DAYS = 25;
-const CAT_ICONS = { gas:'⛽', food:'🍔', camp:'⛺', park:'🏞️', other:'📦' };
+const CAT_ICONS  = { gas:'⛽', food:'🍔', camp:'⛺', park:'🏞️', other:'📦' };
+const TYPE_LABELS = { park:'Park', city:'City', attraction:'Attraction', home:'Home' };
 
 // ── State ──────────────────────────────────────────────────────────────
 let startDate   = localStorage.getItem('startDate') || null;
 let numPeople   = parseInt(localStorage.getItem('numPeople') || '6');
-let expenses    = JSON.parse(localStorage.getItem('expenses') || '[]');
-let visited     = JSON.parse(localStorage.getItem('visited')  || '[]');
+let expenses    = JSON.parse(localStorage.getItem('expenses')    || '[]');
+let visited     = JSON.parse(localStorage.getItem('visited')     || '[]');
 let gasSettings = JSON.parse(localStorage.getItem('gasSettings') || JSON.stringify({
-  car1name: '', car1mpg: '', car1miles: 3943,
-  car2name: '', car2mpg: '', car2miles: 3943,
-  gasPrice: 3.50
+  car1name:'', car1mpg:'', car1miles:3943,
+  car2name:'', car2mpg:'', car2miles:3943,
+  gasPrice:3.50
 }));
 
 // ── Init ───────────────────────────────────────────────────────────────
@@ -587,20 +436,25 @@ function init() {
   updateHeader();
   renderToday();
   renderBudget();
-  renderGasEstimate();
+  renderGasSummary();
   renderItinerary();
 }
 
-// ── Day calculation ────────────────────────────────────────────────────
+// ── Helpers ────────────────────────────────────────────────────────────
+function fmt(n) { return '$' + n.toFixed(2); }
+function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+function mapsNavURL(addr) {
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(addr)}&travelmode=driving`;
+}
+function saveExpenses() { localStorage.setItem('expenses', JSON.stringify(expenses)); }
+
+// ── Day calc ───────────────────────────────────────────────────────────
 function getTripDay() {
   if (!startDate) return null;
   const start = new Date(startDate + 'T00:00:00');
-  const today = new Date();
-  today.setHours(0,0,0,0);
-  const diff = Math.floor((today - start) / 86400000) + 1;
-  return diff;
+  const today = new Date(); today.setHours(0,0,0,0);
+  return Math.floor((today - start) / 86400000) + 1;
 }
-
 function dateForDay(d) {
   if (!startDate) return '';
   const dt = new Date(startDate + 'T00:00:00');
@@ -610,88 +464,51 @@ function dateForDay(d) {
 
 // ── Header ─────────────────────────────────────────────────────────────
 function updateHeader() {
-  const day = getTripDay();
+  const day   = getTripDay();
   const badge = document.getElementById('dayBadge');
   const fill  = document.getElementById('progressFill');
   const label = document.getElementById('progressLabel');
-
-  if (!startDate) {
-    badge.textContent = '—';
-    fill.style.width  = '0%';
-    label.textContent = 'Set start date in Settings';
-    return;
-  }
-  if (day < 1) {
-    const daysTo = 1 - day;
-    badge.textContent = `${daysTo}d away`;
-    fill.style.width  = '0%';
-    label.textContent = `Starts ${dateForDay(1)}`;
-    return;
-  }
-  if (day > TOTAL_DAYS) {
-    badge.textContent = 'Done!';
-    fill.style.width  = '100%';
-    label.textContent = `Trip complete — ${TOTAL_DAYS} days`;
-    return;
-  }
+  if (!startDate) { badge.textContent='—'; fill.style.width='0%'; label.textContent='Set start date in Settings'; return; }
+  if (day < 1)    { badge.textContent=`${1-day}d away`; fill.style.width='0%'; label.textContent=`Starts ${dateForDay(1)}`; return; }
+  if (day > TOTAL_DAYS) { badge.textContent='Done!'; fill.style.width='100%'; label.textContent=`Trip complete — ${TOTAL_DAYS} days`; return; }
   badge.textContent = `Day ${day}`;
   fill.style.width  = `${Math.round((day / TOTAL_DAYS) * 100)}%`;
   label.textContent = `Day ${day} of ${TOTAL_DAYS} · ${dateForDay(day)}`;
 }
 
-// ── Today tab ──────────────────────────────────────────────────────────
+// ── Today ──────────────────────────────────────────────────────────────
 function renderToday() {
   const day = getTripDay();
   const pre = document.getElementById('preTripMsg');
   const content = document.getElementById('todayContent');
-
   if (!startDate || day < 1) {
-    pre.style.display = 'block';
-    content.style.display = 'none';
-    if (startDate && day < 1) {
-      document.getElementById('countdown').textContent = 1 - day;
-    }
+    pre.style.display = 'block'; content.style.display = 'none';
+    if (startDate && day < 1) document.getElementById('countdown').textContent = 1 - day;
     return;
   }
-
-  pre.style.display = 'none';
-  content.style.display = 'block';
-
-  const clampedDay = Math.min(day, TOTAL_DAYS);
-  const todayStops = STOPS.filter(s => s.day === clampedDay);
-  const nextDayStops = STOPS.filter(s => s.day === clampedDay + 1);
-
-  const container = document.getElementById('todayStops');
-  if (todayStops.length === 0) {
-    container.innerHTML = '<div class="empty-state">Rest day — enjoy the moment!</div>';
-    return;
-  }
-
-  container.innerHTML = todayStops.map(s => `
+  pre.style.display = 'none'; content.style.display = 'block';
+  const d = Math.min(day, TOTAL_DAYS);
+  const todayStops = STOPS.filter(s => s.day === d);
+  const nextStops  = STOPS.filter(s => s.day === d + 1);
+  const box = document.getElementById('todayStops');
+  if (!todayStops.length) { box.innerHTML = '<div class="empty-state">Rest day — enjoy it!</div>'; return; }
+  box.innerHTML = todayStops.map(s => `
     <div class="stop-item">
       <div class="dot ${s.type}"></div>
       <div class="stop-info">
         <div class="stop-name">${s.name}</div>
-        <div class="stop-sub">${s.state} · ${capitalize(s.type)}</div>
+        <div class="stop-sub">${s.state} · ${TYPE_LABELS[s.type]}</div>
       </div>
       <a class="nav-link" href="${mapsNavURL(s.address)}" target="_blank" rel="noopener">Navigate →</a>
-    </div>
-  `).join('');
-
-  // Show tomorrow's first stop as context
-  if (nextDayStops.length > 0) {
-    container.innerHTML += `
-      <div style="margin-top:12px; padding-top:10px; border-top:1px solid var(--border);">
-        <div style="font-size:11px;color:var(--muted);margin-bottom:6px;">TOMORROW</div>
-        <div class="stop-item" style="border:none;padding:0">
-          <div class="dot ${nextDayStops[0].type}"></div>
-          <div class="stop-info">
-            <div class="stop-name" style="color:var(--muted)">${nextDayStops[0].name}</div>
-          </div>
-          <a class="nav-link" href="${mapsNavURL(nextDayStops[0].address)}" target="_blank" rel="noopener">Preview →</a>
-        </div>
-      </div>`;
-  }
+    </div>`).join('') + (nextStops.length ? `
+    <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--border)">
+      <div style="font-size:11px;color:var(--muted);margin-bottom:6px">TOMORROW</div>
+      <div class="stop-item" style="border:none;padding:0">
+        <div class="dot ${nextStops[0].type}"></div>
+        <div class="stop-info"><div class="stop-name" style="color:var(--muted)">${nextStops[0].name}</div></div>
+        <a class="nav-link" href="${mapsNavURL(nextStops[0].address)}" target="_blank" rel="noopener">Preview →</a>
+      </div>
+    </div>` : '');
 }
 
 // ── Nearby search ──────────────────────────────────────────────────────
@@ -719,117 +536,7 @@ function openNearby(query) {
   );
 }
 
-// ── Budget ─────────────────────────────────────────────────────────────
-function addExpense() {
-  const desc   = document.getElementById('expDesc').value.trim();
-  const amount = parseFloat(document.getElementById('expAmount').value);
-  const cat    = document.getElementById('expCat').value;
-  const paid   = document.getElementById('expPaid').value.trim() || 'Unknown';
-  if (!desc || isNaN(amount) || amount <= 0) return;
-
-  expenses.push({ id: Date.now(), desc, amount, cat, paid });
-  saveExpenses();
-  renderBudget();
-
-  document.getElementById('expDesc').value   = '';
-  document.getElementById('expAmount').value = '';
-  document.getElementById('expPaid').value   = '';
-}
-
-function deleteExpense(id) {
-  expenses = expenses.filter(e => e.id !== id);
-  saveExpenses();
-  renderBudget();
-}
-
-function renderBudget() {
-  const total = expenses.reduce((s, e) => s + e.amount, 0);
-  const perPerson = total / numPeople;
-
-  document.getElementById('budgetTotal').textContent    = fmt(total);
-  document.getElementById('budgetPerPerson').textContent = fmt(perPerson);
-
-  const list = document.getElementById('expenseList');
-  if (expenses.length === 0) {
-    list.innerHTML = '<div class="empty-state">No expenses yet. Add your first one above.</div>';
-    return;
-  }
-
-  list.innerHTML = [...expenses].reverse().map(e => `
-    <div class="expense-item">
-      <span class="exp-icon">${CAT_ICONS[e.cat]}</span>
-      <div class="exp-info">
-        <div class="exp-desc">${e.desc}</div>
-        <div class="exp-meta">Paid by ${e.paid}</div>
-      </div>
-      <div class="exp-amounts">
-        <div class="exp-total">${fmt(e.amount)}</div>
-        <div class="exp-each">${fmt(e.amount / numPeople)}/person</div>
-      </div>
-      <button class="exp-del" onclick="deleteExpense(${e.id})">✕</button>
-    </div>
-  `).join('');
-}
-
-// ── Itinerary ──────────────────────────────────────────────────────────
-function toggleVisited(id) {
-  if (visited.includes(id)) {
-    visited = visited.filter(v => v !== id);
-  } else {
-    visited.push(id);
-  }
-  localStorage.setItem('visited', JSON.stringify(visited));
-  renderItinerary();
-  updateStats();
-}
-
-function renderItinerary() {
-  const day = getTripDay() || 0;
-  const grouped = {};
-  STOPS.forEach(s => {
-    if (!grouped[s.day]) grouped[s.day] = [];
-    grouped[s.day].push(s);
-  });
-
-  const container = document.getElementById('itineraryList');
-  container.innerHTML = Object.keys(grouped).sort((a,b)=>a-b).map(d => {
-    const isToday = parseInt(d) === day;
-    const dateStr = startDate ? dateForDay(parseInt(d)) : `Day ${d}`;
-    const stopsHTML = grouped[d].map(s => {
-      const done = visited.includes(s.id);
-      return `
-        <div class="itin-stop${done?' visited':''}">
-          <div class="dot ${s.type}"></div>
-          <div class="stop-name">${s.name}</div>
-          <a class="nav-link" href="${mapsNavURL(s.address)}" target="_blank" rel="noopener" style="font-size:11px;padding:4px 8px">↗</a>
-          <button class="check-btn${done?' done':''}" onclick="toggleVisited(${s.id})">${done?'✓':''}</button>
-        </div>`;
-    }).join('');
-    return `
-      <div class="day-group">
-        <div class="day-header">
-          <span class="day-pill${isToday?' today':''}">Day ${d}</span>
-          <span class="day-date-label">${dateStr}</span>
-        </div>
-        ${stopsHTML}
-      </div>`;
-  }).join('');
-
-  updateStats();
-}
-
-function updateStats() {
-  const visitedStops  = STOPS.filter(s => visited.includes(s.id));
-  const parksVisited  = visitedStops.filter(s => s.park).length;
-  const statesVisited = new Set(visitedStops.map(s => s.state)).size;
-
-  document.getElementById('statParks').textContent  = parksVisited;
-  document.getElementById('statStates').textContent = statesVisited;
-  document.getElementById('statStops').textContent  = visitedStops.length;
-  document.getElementById('statDays').textContent   = TOTAL_DAYS;
-}
-
-// ── Gas Estimator ──────────────────────────────────────────────────────
+// ── Gas ────────────────────────────────────────────────────────────────
 function loadGasInputs() {
   const g = gasSettings;
   document.getElementById('car1name').value  = g.car1name  || '';
@@ -852,58 +559,159 @@ function saveGas() {
     gasPrice:  parseFloat(document.getElementById('gasPrice').value)  || 0,
   };
   localStorage.setItem('gasSettings', JSON.stringify(gasSettings));
-  renderGasEstimate();
+  renderGasSummary();
 }
 
-function renderGasEstimate() {
-  const { car1mpg, car1miles, car2mpg, car2miles, gasPrice } = gasSettings;
-  const price = gasPrice || 0;
+function renderGasSummary() {
+  const { car1name, car1mpg, car1miles, car2name, car2mpg, car2miles, gasPrice } = gasSettings;
+  const p = gasPrice || 0;
+  const body = document.getElementById('gasSummaryBody');
 
-  function carCalc(mpg, miles, estId, galId) {
-    if (!mpg || !miles || !price) {
-      document.getElementById(estId).textContent = '—';
-      document.getElementById(galId).textContent = 'enter MPG & miles';
-      return 0;
-    }
-    const gallons = miles / mpg;
-    const cost    = gallons * price;
-    document.getElementById(estId).textContent = fmt(cost);
-    document.getElementById(galId).textContent = `~${gallons.toFixed(0)} gallons`;
-    return cost;
+  if (!p || (!car1mpg && !car2mpg)) {
+    body.innerHTML = '<div class="empty-state" style="padding:12px 0">Set car details in ⚙️ Settings</div>';
+    return;
   }
 
-  const c1 = carCalc(car1mpg, car1miles, 'car1est', 'car1gal');
-  const c2 = carCalc(car2mpg, car2miles, 'car2est', 'car2gal');
-  const total = c1 + c2;
+  function carCost(mpg, miles) {
+    return (mpg && miles && p) ? (miles / mpg) * p : null;
+  }
 
-  document.getElementById('gasTotalEst').textContent     = total > 0 ? fmt(total) : '—';
-  document.getElementById('gasPerPersonEst').textContent = total > 0 ? fmt(total / numPeople) : '—';
+  const c1 = carCost(car1mpg, car1miles);
+  const c2 = carCost(car2mpg, car2miles);
+  const total = (c1 || 0) + (c2 || 0);
+
+  const row = (label, val) => val !== null
+    ? `<div class="gas-summary-row"><span>${label}</span><span class="val">${fmt(val)}</span></div>`
+    : '';
+
+  body.innerHTML =
+    row(car1name || 'Car 1', c1) +
+    row(car2name || 'Car 2', c2) +
+    (total > 0 ? `
+      <div class="gas-summary-row total"><span>Total gas</span><span class="val">${fmt(total)}</span></div>
+      <div class="gas-summary-row total"><span>Per person</span><span class="val">${fmt(total / numPeople)}</span></div>
+    ` : '');
+}
+
+// ── Budget ─────────────────────────────────────────────────────────────
+function addExpense() {
+  const desc   = document.getElementById('expDesc').value.trim();
+  const amount = parseFloat(document.getElementById('expAmount').value);
+  const cat    = document.getElementById('expCat').value;
+  const paid   = document.getElementById('expPaid').value.trim() || 'Unknown';
+  if (!desc || isNaN(amount) || amount <= 0) return;
+  expenses.push({ id: Date.now(), desc, amount, cat, paid });
+  saveExpenses(); renderBudget();
+  document.getElementById('expDesc').value = '';
+  document.getElementById('expAmount').value = '';
+  document.getElementById('expPaid').value = '';
+}
+
+function deleteExpense(id) {
+  expenses = expenses.filter(e => e.id !== id);
+  saveExpenses(); renderBudget();
+}
+
+function renderBudget() {
+  const total = expenses.reduce((s, e) => s + e.amount, 0);
+  document.getElementById('budgetTotal').textContent     = fmt(total);
+  document.getElementById('budgetPerPerson').textContent = fmt(total / numPeople);
+  const list = document.getElementById('expenseList');
+  if (!expenses.length) { list.innerHTML = '<div class="empty-state">No expenses yet.</div>'; return; }
+  list.innerHTML = [...expenses].reverse().map(e => `
+    <div class="expense-item">
+      <span class="exp-icon">${CAT_ICONS[e.cat]}</span>
+      <div class="exp-info">
+        <div class="exp-desc">${e.desc}</div>
+        <div class="exp-meta">Paid by ${e.paid}</div>
+      </div>
+      <div class="exp-amounts">
+        <div class="exp-total">${fmt(e.amount)}</div>
+        <div class="exp-each">${fmt(e.amount / numPeople)}/person</div>
+      </div>
+      <button class="exp-del" onclick="deleteExpense(${e.id})">✕</button>
+    </div>`).join('');
+}
+
+// ── Itinerary ──────────────────────────────────────────────────────────
+function toggleVisited(id) {
+  visited = visited.includes(id) ? visited.filter(v => v !== id) : [...visited, id];
+  localStorage.setItem('visited', JSON.stringify(visited));
+  renderItinerary();
+}
+
+function renderItinerary() {
+  const day = getTripDay() || 0;
+  const grouped = {};
+  STOPS.forEach(s => { (grouped[s.day] = grouped[s.day] || []).push(s); });
+
+  document.getElementById('itineraryList').innerHTML = Object.keys(grouped)
+    .sort((a,b) => a - b)
+    .map(d => {
+      const isToday = parseInt(d) === day;
+      const dateStr = startDate ? dateForDay(parseInt(d)) : '';
+      const stops = grouped[d].map(s => {
+        const done = visited.includes(s.id);
+        return `
+          <div class="itin-stop${done ? ' visited' : ''}${isToday ? ' today-stop' : ''}" id="stop-${s.id}">
+            <div class="itin-stop-info">
+              <div class="itin-stop-name">${s.name}</div>
+              <div class="itin-stop-meta">${s.state}${dateStr ? ' · ' + dateStr : ''}</div>
+            </div>
+            <span class="type-tag ${s.type}">${TYPE_LABELS[s.type]}</span>
+            <a class="itin-nav" href="${mapsNavURL(s.address)}" target="_blank" rel="noopener">↗</a>
+            <button class="check-btn${done ? ' done' : ''}" onclick="toggleVisited(${s.id})">${done ? '✓' : ''}</button>
+          </div>`;
+      }).join('');
+      return `
+        <div class="day-group" id="day-${d}">
+          <div class="day-header">
+            <span class="day-pill${isToday ? ' today' : ''}">Day ${d}</span>
+            ${dateStr ? `<span class="day-date-label">${dateStr}</span>` : ''}
+            ${isToday ? '<span style="font-size:11px;color:var(--accent);font-weight:700">← TODAY</span>' : ''}
+          </div>
+          ${stops}
+        </div>`;
+    }).join('');
+
+  updateStats();
+}
+
+function jumpToToday() {
+  const day = getTripDay();
+  if (!day || day < 1 || day > TOTAL_DAYS) return;
+  const el = document.getElementById(`day-${day}`);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateStats() {
+  const done   = STOPS.filter(s => visited.includes(s.id));
+  const parks  = done.filter(s => s.park).length;
+  const states = new Set(done.map(s => s.state)).size;
+  document.getElementById('statParks').textContent  = parks;
+  document.getElementById('statStates').textContent = states;
+  document.getElementById('statStops').textContent  = done.length;
 }
 
 // ── Settings ───────────────────────────────────────────────────────────
 function saveStartDate() {
   startDate = document.getElementById('startDateInput').value;
   localStorage.setItem('startDate', startDate);
-  updateHeader();
-  renderToday();
-  renderItinerary();
+  updateHeader(); renderToday(); renderItinerary();
 }
 
 function savePeople() {
   numPeople = parseInt(document.getElementById('numPeopleInput').value) || 6;
   localStorage.setItem('numPeople', numPeople);
-  renderBudget();
-  renderGasEstimate();
+  renderBudget(); renderGasSummary();
 }
 
 function clearAll() {
-  if (!confirm('Clear all expenses and visited progress? This cannot be undone.')) return;
-  expenses = [];
-  visited  = [];
+  if (!confirm('Clear all expenses and visited progress? Cannot be undone.')) return;
+  expenses = []; visited = [];
   saveExpenses();
   localStorage.setItem('visited', '[]');
-  renderBudget();
-  renderItinerary();
+  renderBudget(); renderItinerary();
 }
 
 // ── Tabs ───────────────────────────────────────────────────────────────
@@ -912,20 +720,9 @@ function switchTab(name, btn) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('pane-' + name).classList.add('active');
   btn.classList.add('active');
+  if (name === 'itinerary') setTimeout(jumpToToday, 80);
 }
 
-// ── Helpers ────────────────────────────────────────────────────────────
-function fmt(n) { return '$' + n.toFixed(2); }
-
-function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
-
-function mapsNavURL(address) {
-  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}&travelmode=driving`;
-}
-
-function saveExpenses() { localStorage.setItem('expenses', JSON.stringify(expenses)); }
-
-// ── Run ────────────────────────────────────────────────────────────────
 init();
 </script>
 </body>
