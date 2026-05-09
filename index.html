@@ -240,6 +240,21 @@
     .leaflet-control-zoom a { background: #21262d !important; color: #c9d1d9 !important; border-color: #30363d !important; }
     .leaflet-control-attribution { background: rgba(13,17,23,.8) !important; color: #8b949e !important; }
     .leaflet-control-attribution a { color: #58a6ff !important; }
+
+    /* ── Map day labels (permanent tooltips) ── */
+    .day-lbl { padding:1px 4px !important; border:none !important; border-radius:4px !important; font-size:9px !important; font-weight:800 !important; box-shadow:0 1px 4px rgba(0,0,0,.5) !important; color:#000 !important; white-space:nowrap !important; }
+    .day-lbl::before { display:none !important; }
+    .t-park       { background:#3fb950 !important; }
+    .t-city       { background:#58a6ff !important; }
+    .t-attraction { background:#d2a8ff !important; }
+    .t-home       { background:#f0883e !important; }
+    .lbl-faded    { opacity:.4 !important; }
+
+    /* ── Day reorder controls ── */
+    .day-ctrl { display:flex; align-items:center; gap:3px; flex-shrink:0; }
+    .day-ctrl button { background:var(--surface2); border:1px solid var(--border); color:var(--text); border-radius:5px; width:22px; height:22px; cursor:pointer; font-size:11px; display:flex; align-items:center; justify-content:center; padding:0; }
+    .day-ctrl button:active { opacity:.65; }
+    .day-ctrl .dc-label { font-size:10px; color:var(--muted); min-width:34px; text-align:center; }
   </style>
 </head>
 <body>
@@ -449,6 +464,7 @@ let startDate   = localStorage.getItem('startDate') || null;
 let numPeople   = parseInt(localStorage.getItem('numPeople') || '6');
 let expenses    = JSON.parse(localStorage.getItem('expenses')    || '[]');
 let visited     = JSON.parse(localStorage.getItem('visited')     || '[]');
+let stopOverrides = JSON.parse(localStorage.getItem('stopOverrides') || '{}');
 let gasSettings = JSON.parse(localStorage.getItem('gasSettings') || JSON.stringify({
   car1name:'', car1mpg:'', car1miles:3943,
   car2name:'', car2mpg:'', car2miles:3943,
@@ -465,6 +481,33 @@ function init() {
   renderBudget();
   renderGasSummary();
   renderItinerary();
+}
+
+// ── Stop day overrides ─────────────────────────────────────────────────
+function getStopDay(stop) { return stopOverrides[stop.id] ?? stop.day; }
+
+function changeStopDay(id, delta) {
+  const stop = STOPS.find(s => s.id === id);
+  const cur = getStopDay(stop);
+  const next = Math.max(1, Math.min(TOTAL_DAYS, cur + delta));
+  if (next === stop.day) delete stopOverrides[id];
+  else stopOverrides[id] = next;
+  localStorage.setItem('stopOverrides', JSON.stringify(stopOverrides));
+  renderItinerary();
+  renderToday();
+}
+
+// ── OSRM road routing ──────────────────────────────────────────────────
+async function fetchOSRMRoute() {
+  const ordered = [...STOPS].sort((a,b) => getStopDay(a) - getStopDay(b) || a.id - b.id);
+  const coords = ordered.map(s => `${s.lng},${s.lat}`).join(';');
+  try {
+    const res = await fetch(`https://router.project-osrm.org/route/v1/driving/${coords}?overview=full&geometries=geojson`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (data.routes?.[0]) return data.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);
+  } catch(e) {}
+  return null;
 }
 
 // ── Helpers ────────────────────────────────────────────────────────────
@@ -515,8 +558,8 @@ function renderToday() {
   }
   pre.style.display = 'none'; content.style.display = 'block';
   const d = Math.min(day, TOTAL_DAYS);
-  const todayStops = STOPS.filter(s => s.day === d);
-  const nextStops  = STOPS.filter(s => s.day === d + 1);
+  const todayStops = STOPS.filter(s => getStopDay(s) === d);
+  const nextStops  = STOPS.filter(s => getStopDay(s) === d + 1);
   const box = document.getElementById('todayStops');
   if (!todayStops.length) { box.innerHTML = '<div class="empty-state">Rest day — enjoy it!</div>'; return; }
   box.innerHTML = todayStops.map(s => `
@@ -670,7 +713,10 @@ function toggleVisited(id) {
 function renderItinerary() {
   const day = getTripDay() || 0;
   const grouped = {};
-  STOPS.forEach(s => { (grouped[s.day] = grouped[s.day] || []).push(s); });
+  STOPS.forEach(s => {
+    const d = getStopDay(s);
+    (grouped[d] = grouped[d] || []).push(s);
+  });
 
   document.getElementById('itineraryList').innerHTML = Object.keys(grouped)
     .sort((a,b) => a - b)
@@ -679,11 +725,18 @@ function renderItinerary() {
       const dateStr = startDate ? dateForDay(parseInt(d)) : '';
       const stops = grouped[d].map(s => {
         const done = visited.includes(s.id);
+        const sd = getStopDay(s);
+        const modified = sd !== s.day;
         return `
           <div class="itin-stop${done ? ' visited' : ''}${isToday ? ' today-stop' : ''}" id="stop-${s.id}">
             <div class="itin-stop-info">
               <div class="itin-stop-name">${s.name}</div>
-              <div class="itin-stop-meta">${s.state}${dateStr ? ' · ' + dateStr : ''}</div>
+              <div class="itin-stop-meta">${s.state}${dateStr ? ' · ' + dateStr : ''}${modified ? ' · <span style="color:var(--accent)">moved</span>' : ''}</div>
+            </div>
+            <div class="day-ctrl">
+              <button onclick="changeStopDay(${s.id},-1)" title="Move earlier">◀</button>
+              <span class="dc-label">D${sd}</span>
+              <button onclick="changeStopDay(${s.id},1)" title="Move later">▶</button>
             </div>
             <span class="type-tag ${s.type}">${TYPE_LABELS[s.type]}</span>
             <a class="itin-nav" href="${mapsNavURL(s.address)}" target="_blank" rel="noopener">↗</a>
@@ -759,41 +812,48 @@ function initMap() {
     maxZoom: 18
   }).addTo(mapInstance);
 
-  // Route polyline
-  const routeCoords = [...STOPS].sort((a,b) => a.day - b.day || a.id - b.id).map(s => [s.lat, s.lng]);
-  L.polyline(routeCoords, { color: '#f0883e', weight: 2.5, opacity: 0.7, dashArray: '6 4' }).addTo(mapInstance);
+  // Route polyline — straight line first, then replace with road route
+  const ordered = [...STOPS].sort((a,b) => getStopDay(a) - getStopDay(b) || a.id - b.id);
+  const routeLine = L.polyline(ordered.map(s => [s.lat, s.lng]), {
+    color: '#f0883e', weight: 2.5, opacity: 0.5, dashArray: '6 4'
+  }).addTo(mapInstance);
 
-  // Markers
+  fetchOSRMRoute().then(pts => {
+    if (pts) {
+      routeLine.setLatLngs(pts);
+      routeLine.setStyle({ dashArray: null, opacity: 0.7 });
+    }
+  });
+
+  // Markers + labels
   const day = getTripDay() || 0;
   STOPS.forEach(s => {
-    const isToday  = s.day === day;
-    const isDone   = visited.includes(s.id);
-    const color    = TYPE_COLORS[s.type];
-    const radius   = isToday ? 10 : 7;
-    const opacity  = isDone ? 0.4 : 1;
+    const isToday = getStopDay(s) === day;
+    const isDone  = visited.includes(s.id);
+    const color   = TYPE_COLORS[s.type];
+    const radius  = isToday ? 10 : 7;
 
     const marker = L.circleMarker([s.lat, s.lng], {
       radius,
       fillColor: color,
       color: isToday ? '#fff' : color,
       weight: isToday ? 2.5 : 1,
-      fillOpacity: opacity,
+      fillOpacity: isDone ? 0.4 : 1,
       opacity: 1
     }).addTo(mapInstance);
 
-    // Day number label
-    const icon = L.divIcon({
-      className: '',
-      html: `<div style="background:${color};color:#000;font-size:9px;font-weight:800;
-             padding:1px 4px;border-radius:4px;white-space:nowrap;opacity:${isDone?0.4:1};
-             box-shadow:0 1px 4px rgba(0,0,0,.5)">D${s.day}</div>`,
-      iconAnchor: [-6, 6]
+    // Permanent label — centered right of the circle dot
+    marker.bindTooltip(`D${getStopDay(s)}`, {
+      permanent: true,
+      direction: 'right',
+      className: `day-lbl t-${s.type}${isDone ? ' lbl-faded' : ''}`,
+      offset: [radius + 2, 0]
     });
-    L.marker([s.lat, s.lng], { icon, interactive: false }).addTo(mapInstance);
 
+    const sd = getStopDay(s);
     marker.bindPopup(`
       <div class="popup-name">${s.name}</div>
-      <div class="popup-meta">${s.state} · Day ${s.day}${dateForDay(s.day) ? ' · ' + dateForDay(s.day) : ''}</div>
+      <div class="popup-meta">${s.state} · Day ${sd}${dateForDay(sd) ? ' · ' + dateForDay(sd) : ''}</div>
       <a class="popup-nav" href="${mapsNavURL(s.address)}" target="_blank" rel="noopener">Navigate →</a>
     `);
   });
